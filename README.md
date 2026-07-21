@@ -2,7 +2,7 @@
 
 A bilingual (Arabic RTL / English LTR) static website for **Dar Masafa Publishing House**, an independent Arabic publisher based in the Sultanate of Oman.
 
-**Live site:** https://YOUR-GITHUB-USERNAME.github.io/masafa-site/
+**Live site:** https://mohadsalimweb.github.io/masafa-site/
 
 ## Structure
 
