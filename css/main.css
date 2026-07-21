@@ -1463,9 +1463,30 @@ html[dir="rtl"] .prose ol {
   .header-inner {
     grid-template-columns: auto 1fr auto;
     position: relative;
+    align-items: center;
+    min-height: 64px;
+    gap: 1rem;
+    padding-block: .5rem;
   }
   .site-header {
     position: relative;
+  }
+  .brand { gap: .6rem; }
+  .brand-mark {
+    height: 44px;
+    width: 38px;
+  }
+  .brand-name {
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+    line-height: 1;
+  }
+  .brand-name-en {
+    display: none;
+  }
+  .lang-toggle {
+    padding: .35rem .6rem;
+    font-size: .72rem;
   }
   .feature-split-media,
   .feature-split-body {
@@ -1490,6 +1511,9 @@ html[dir="rtl"] .prose ol {
 @media (max-width: 560px) {
   .footer-grid { grid-template-columns: 1fr; }
   .hero-meta { gap: 1.5rem 2rem; }
+  .header-inner { min-height: 60px; }
+  .brand-mark { height: 40px; width: 34px; }
+  .brand-name { font-size: 1rem; }
   .hero-meta-item .num { font-size: 1.6rem; }
   .book-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem 1.25rem; }
   .book-cover-inner { padding: 1rem .85rem; }
