@@ -1576,10 +1576,11 @@ html[dir="rtl"] .prose ol {
     gap: 1rem;
     padding-block: .5rem;
   }
-  /* Force physical order on mobile: brand on left, nav-toggle on right,
-     regardless of writing direction. */
-  html[dir="rtl"] .header-inner { flex-direction: row-reverse; }
-  html[dir="rtl"] .header-utils { flex-direction: row-reverse; }
+  /* Physical order on mobile: nav-toggle on left, brand on right,
+     regardless of writing direction. RTL gets the default row (visual
+     order reversed by dir=rtl); LTR needs row-reverse to match. */
+  html[dir="ltr"] .header-inner { flex-direction: row-reverse; }
+  html[dir="ltr"] .header-utils { flex-direction: row-reverse; }
   .site-header {
     position: relative;
   }
