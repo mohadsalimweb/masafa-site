@@ -39,7 +39,8 @@ masafa_site/
 ├── assets/
 │   ├── logo-primary.png   Transparent-background primary mark (header + favicon)
 │   ├── logo-primary.jpg   Legacy JPG (kept for reference)
-│   └── logo-dark.jpg      Burgundy variant for future dark-surface use
+│   ├── logo-dark.jpg      Burgundy variant for future dark-surface use
+│   └── fonts/thmanyah/    Self-hosted Thmanyah family (sans / seriftext / serifdisplay, woff2) + LICENSE.pdf
 ├── README.md
 ├── DEPLOY.md          Step-by-step publishing guide
 ├── PROJECT.md         (this file)
@@ -80,9 +81,14 @@ Each of the six series has its own colour, tuned to sit inside the earthen palet
 
 ### 3.3 Typography
 
-- **Arabic (default):** IBM Plex Sans Arabic + Amiri (serif for the manifesto)
-- **English:** Inter + EB Garamond (serif for the manifesto)
-- Fonts swap automatically based on `<html lang="ar">` vs `<html lang="en">`
+- **Family:** [Thmanyah](https://thmanyah.com) — a bilingual (Arabic + Latin) family; the same faces serve both scripts, so AR and EN pages share one visual voice
+- **Three cuts, self-hosted as `woff2`** under `assets/fonts/thmanyah/`:
+  - **Thmanyah Sans** — body and UI (`--font-body`, `--font-display` on Arabic; `--font-latin` on English)
+  - **Thmanyah Serif Text** — long-form and the manifesto (`--font-serif`)
+  - **Thmanyah Serif Display** — reserved for large display type (`--font-arabic-display` / `--font-latin-display`) — available but not yet used
+- Five weights per cut: Light (300), Regular (400), Medium (500), Bold (700), Black (900)
+- Fonts swap automatically based on `<html lang="ar">` vs `<html lang="en">` — same faces, but the token indirection preserves the per-script fallback chain if the webfont ever fails to load
+- License PDF sits alongside the font files at `assets/fonts/thmanyah/LICENSE.pdf`
 
 ### 3.4 Layout rules
 
@@ -174,6 +180,7 @@ Check `Settings → Pages` on the repo. Source should say `Deploy from a branch 
 4. **Made the logo background transparent** — knocked out the outer cream backdrop (RGB ~232,227,221) with PIL, saved as PNG. Removed the `mix-blend-mode: multiply` workaround.
 5. **Deployed to GitHub Pages** — created the repo, authenticated `gh`, pushed, enabled Pages via API. Verified every URL returns 200.
 6. **Fixed mobile header** — under 900px the toggle read as centred (row was 78 px because the brand had two lines). Now collapses to one line, row is 64 px, logo scales to 44×38 px.
+7. **Swapped Google Fonts for self-hosted Thmanyah** — dropped the `@import` for IBM Plex Sans Arabic / Amiri / Inter / EB Garamond and replaced them with local `@font-face` blocks pointing at Thmanyah Sans, Serif Text, and Serif Display (woff2, five weights each) under `assets/fonts/thmanyah/`. Same family now serves Arabic and Latin, so the two sides of the site share one visual voice; the AR/EN token split stays so the per-script fallback chain survives a webfont failure.
 
 ---
 

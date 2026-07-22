@@ -24,7 +24,7 @@ masafa_site/
 ## Design system
 
 - Palette derived from the logo — deep brown `#3a312a`, cream `#ece5d7`, burgundy accent `#9a4a48`
-- Typography — IBM Plex Sans Arabic + Amiri for Arabic; Inter + EB Garamond for English
+- Typography — [Thmanyah](https://thmanyah.com), a bilingual family (Sans, Serif Text, Serif Display) self-hosted from `assets/fonts/thmanyah/`; the same faces serve both scripts
 - Six-series colour system — each series has a discreet accent tuned to sit inside the earthen palette
 - ≥ 35% whitespace on every visual surface (a direct application of the philosophy of the name)
 
