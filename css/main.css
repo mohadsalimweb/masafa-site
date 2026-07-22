@@ -1576,11 +1576,15 @@ html[dir="rtl"] .prose ol {
     gap: 1rem;
     padding-block: .5rem;
   }
-  /* Physical order on mobile: nav-toggle on left, brand on right,
-     regardless of writing direction. RTL gets the default row (visual
-     order reversed by dir=rtl); LTR needs row-reverse to match. */
-  html[dir="ltr"] .header-inner { flex-direction: row-reverse; }
-  html[dir="ltr"] .header-utils { flex-direction: row-reverse; }
+  /* Physical order on mobile: nav-toggle on physical LEFT, brand on
+     physical RIGHT — no matter the writing direction. Force a plain
+     LTR flex row here so `justify-content: space-between` puts item
+     with `order: 1` at the left edge and `order: 2` at the right. */
+  .header-inner { direction: ltr; }
+  .header-inner .brand { order: 2; }
+  .header-inner .header-utils { order: 1; direction: ltr; }
+  /* But keep the brand's own text in its natural direction. */
+  html[dir="rtl"] .header-inner .brand { direction: rtl; }
   .site-header {
     position: relative;
   }
